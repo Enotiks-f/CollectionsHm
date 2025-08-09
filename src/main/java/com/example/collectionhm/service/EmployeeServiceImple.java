@@ -21,7 +21,7 @@ public class EmployeeServiceImple implements EmployeeService {
 
 
     // метод добавления сотридника в лист
-    public void addEmployee(String firstName, String lastName) {
+    public List<Employee> addEmployee(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
 
         // Проверка на макс. кол-во сотрудников
@@ -35,6 +35,7 @@ public class EmployeeServiceImple implements EmployeeService {
         }
         employees.add(employee);
 
+        return employees;
     }
 
     // метод удаления соттрудника из листа
