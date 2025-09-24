@@ -1,7 +1,6 @@
 package com.example.collectionhm.controller;
 
-import com.example.collectionhm.Employee;
-import com.example.collectionhm.exception.EmployeeNotFoundException;
+import com.example.collectionhm.model.Employee;
 import com.example.collectionhm.service.EmployeeServiceImple;
 import org.springframework.web.bind.annotation.*;
 

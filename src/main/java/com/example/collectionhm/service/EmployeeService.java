@@ -1,6 +1,6 @@
 package com.example.collectionhm.service;
 
-import com.example.collectionhm.Employee;
+import com.example.collectionhm.model.Employee;
 
 import java.util.Collection;
 import java.util.List;

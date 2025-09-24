@@ -1,6 +1,6 @@
 package com.example.collectionhm.service;
 
-import com.example.collectionhm.Employee;
+import com.example.collectionhm.model.Employee;
 import com.example.collectionhm.exception.EmployeeAlreadyAddedException;
 import com.example.collectionhm.exception.EmployeeNotFoundException;
 import com.example.collectionhm.exception.EmployeeStorageIsFullException;

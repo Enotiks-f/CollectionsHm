@@ -1,4 +1,4 @@
-package com.example.collectionhm;
+package com.example.collectionhm.model;
 
 import java.util.Objects;
 
