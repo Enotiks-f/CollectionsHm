@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface EmployeeService {
-    public Collection<Employee> addEmployee(String firstName, String lastName);
+    public Collection<Employee> addEmployee(String firstName, String lastName, int salary, String department);
 
     public Collection<Employee> removeEmployee (String firstName, String lastName);
 

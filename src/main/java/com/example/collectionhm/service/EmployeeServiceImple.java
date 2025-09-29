@@ -16,7 +16,7 @@ public class EmployeeServiceImple implements EmployeeService {
     private final Integer maxEmployees = 6;
 
     // Метод добавления (возвращает список всех сотрудников)
-    public Collection<Employee> addEmployee(String firstName, String lastName) {
+    public Collection<Employee> addEmployee(String firstName, String lastName, int salary, String department) {
         String key = firstName + lastName;
 
         if (employees.size() >= maxEmployees) {
@@ -27,7 +27,7 @@ public class EmployeeServiceImple implements EmployeeService {
             throw new EmployeeAlreadyAddedException("Сотрудник уже существует");
         }
 
-        employees.put(key, new Employee(firstName, lastName));
+        employees.put(key, new Employee(firstName, lastName, salary, department));
         return findAllEmployees();
     }
 

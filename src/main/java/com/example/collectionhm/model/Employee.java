@@ -5,6 +5,8 @@ import java.util.Objects;
 public class Employee {
     private String firstName;
     private String lastName;
+    private int salary;
+    private String department;
 
     @Override
     public String toString() {
@@ -39,8 +41,10 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public Employee(String firstName, String lastName) {
+    public Employee(String firstName, String lastName, int salary, String department) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.salary = salary;
+        this.department = department;
     }
 }
