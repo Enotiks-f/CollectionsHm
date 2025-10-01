@@ -19,8 +19,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Collection<Employee> addEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.addEmployee(firstName, lastName);
+    public Collection<Employee> addEmployee(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int salary, @RequestParam String department) {
+        return employeeService.addEmployee(firstName, lastName, salary, department);
     }
 
     @GetMapping("/remove")
@@ -36,6 +36,11 @@ public class EmployeeController {
     @GetMapping("/findAll")
     public Collection<Employee> findAllEmployees() {
         return employeeService.findAllEmployees();
+    }
+
+    @GetMapping("/departments/all")
+    public List<Employee> findAllDepartments(@RequestParam String department) {
+        return employeeService.getEmploeeDeportament(department);
     }
 
 }

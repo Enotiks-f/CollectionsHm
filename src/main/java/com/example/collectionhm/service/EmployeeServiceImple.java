@@ -7,6 +7,7 @@ import com.example.collectionhm.exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImple implements EmployeeService {
@@ -59,5 +60,19 @@ public class EmployeeServiceImple implements EmployeeService {
     // Метод получения всех сотрудников
     public Collection<Employee> findAllEmployees() {
         return Collections.unmodifiableCollection(employees.values());
+    }
+
+    // Метод получение всех Emploee депортаммента
+    public List<Employee> getEmploeeDeportament(String department) {
+        List<Employee> res = employees.values()
+                .stream().filter(employee -> employee.getDepartment()
+                        .equals(department)).collect(Collectors.
+                        toList());
+
+        if (res.isEmpty()) {
+            throw new EmployeeNotFoundException("Department not found");
+        }
+
+        return res;
     }
 }

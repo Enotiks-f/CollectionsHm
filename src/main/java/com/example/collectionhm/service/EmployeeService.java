@@ -15,4 +15,6 @@ public interface EmployeeService {
 
     public Collection<Employee> findAllEmployees();
 
+    public List<Employee> getEmploeeDeportament(String department);
+
 }
