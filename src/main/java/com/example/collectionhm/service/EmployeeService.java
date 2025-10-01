@@ -4,7 +4,7 @@ import com.example.collectionhm.model.Employee;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 public interface EmployeeService {
     public Collection<Employee> addEmployee(String firstName, String lastName, int salary, String department);
@@ -16,5 +16,9 @@ public interface EmployeeService {
     public Collection<Employee> findAllEmployees();
 
     public List<Employee> getEmploeeDeportament(String department);
+
+    public Optional<Employee> getMinSalaryEmployee(String department);
+
+    public Optional<Employee> getMaxSalaryEmployee(String department);
 
 }

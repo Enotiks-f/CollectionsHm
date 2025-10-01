@@ -75,4 +75,25 @@ public class EmployeeServiceImple implements EmployeeService {
 
         return res;
     }
+
+    //Метод получение Сотрудника с мин зп
+    @Override
+    public Optional<Employee> getMinSalaryEmployee(String department) {
+        return Optional.of(employees.values().stream()
+                .filter(employee -> employee.getDepartment().equals(department))
+                .min(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников"))) ;
+
+    }
+
+    //Метод получение Сотрудника с макс зп
+    @Override
+    public Optional<Employee> getMaxSalaryEmployee(String department) {
+        return Optional.of(employees.values().stream()
+                .filter(employee -> employee.getDepartment().equals(department))
+                .max(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников"))) ;
+    }
+
+
 }

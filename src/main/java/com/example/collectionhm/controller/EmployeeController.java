@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/employee")
@@ -43,6 +44,14 @@ public class EmployeeController {
         return employeeService.getEmploeeDeportament(department);
     }
 
-}
+    @GetMapping("/departments/max-salary")
+    public Optional<Employee> EmpDepartmentsMaxSalary(@RequestParam String department) {
+        return employeeService.getMaxSalaryEmployee(department);
+    }
 
+    @GetMapping("/departments/min-salary")
+    public Optional<Employee> EmpDepartmentsMinSalary(@RequestParam String department) {
+        return employeeService.getMinSalaryEmployee(department);
+    }
+}
 
