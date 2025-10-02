@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -40,8 +41,13 @@ public class EmployeeController {
     }
 
     @GetMapping("/departments/all")
-    public List<Employee> findAllDepartments(@RequestParam String department) {
-        return employeeService.getEmploeeDeportament(department);
+    public Map<String, List<Employee>> findAllDepartments() {
+        return employeeService.getAllEmployeesGroupedByDepartment();
+    }
+
+    @GetMapping(value = "/departments/EmploeeDepartment")
+    public List<Employee> findAllDepartments(@RequestParam String departmentId) {
+        return employeeService.getEmploeeDeportament(departmentId);
     }
 
     @GetMapping("/departments/max-salary")
@@ -55,3 +61,4 @@ public class EmployeeController {
     }
 }
 
+        

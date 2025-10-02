@@ -68,11 +68,6 @@ public class EmployeeServiceImple implements EmployeeService {
                 .stream().filter(employee -> employee.getDepartment()
                         .equals(department)).collect(Collectors.
                         toList());
-
-        if (res.isEmpty()) {
-            throw new EmployeeNotFoundException("Department not found");
-        }
-
         return res;
     }
 
@@ -95,5 +90,9 @@ public class EmployeeServiceImple implements EmployeeService {
                 .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников"))) ;
     }
 
+    //Метод получение всех сотрудников с разделением по отделу
 
+    public Map<String, List<Employee>> getAllEmployeesGroupedByDepartment() {
+        return employees.values().stream().collect(Collectors.groupingBy(Employee::getDepartment));
+    }
 }
