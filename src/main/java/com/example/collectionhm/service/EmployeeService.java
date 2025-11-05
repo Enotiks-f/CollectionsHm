@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface EmployeeService {
-    public Collection<Employee> addEmployee(String firstName, String lastName, int salary, String department);
+    public Collection<Employee> addEmployee(String firstName, String lastName, int salary, int department);
 
     public Collection<Employee> removeEmployee (String firstName, String lastName);
 
@@ -16,11 +16,11 @@ public interface EmployeeService {
 
     public Collection<Employee> findAllEmployees();
 
-    public List<Employee> getEmploeeDeportament(String department);
+    public List<Employee> getEmploeeDeportament(int department);
 
-    public Optional<Employee> getMinSalaryEmployee(String department);
+    public Optional<Employee> getMinSalaryEmployee(int department);
 
-    public Optional<Employee> getMaxSalaryEmployee(String department);
+    public Optional<Employee> getMaxSalaryEmployee(int department);
 
-    public Map<String, List<Employee>> getAllEmployeesGroupedByDepartment();
+    public Map<Integer, List<Employee>> getAllEmployeesGroupedByDepartment();
 }
