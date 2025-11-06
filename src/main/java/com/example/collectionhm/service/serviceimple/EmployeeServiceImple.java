@@ -1,9 +1,10 @@
-package com.example.collectionhm.service;
+package com.example.collectionhm.service.serviceimple;
 
 import com.example.collectionhm.exception.EmployeeAlreadyAddedException;
 import com.example.collectionhm.exception.EmployeeStorageIsFullException;
 import com.example.collectionhm.model.Employee;
 import com.example.collectionhm.exception.EmployeeNotFoundException;
+import com.example.collectionhm.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -17,7 +18,7 @@ public class EmployeeServiceImple implements EmployeeService {
     private final Integer maxEmployees = 6;
 
     // Метод добавления (возвращает список всех сотрудников)
-    public Collection<Employee> addEmployee(String firstName, String lastName, int salary, String department) {
+    public Collection<Employee> addEmployee(String firstName, String lastName, int salary, int department) {
         String key = firstName + lastName;
 
         if (employees.size() >= maxEmployees) {
@@ -62,37 +63,4 @@ public class EmployeeServiceImple implements EmployeeService {
         return Collections.unmodifiableCollection(employees.values());
     }
 
-    // Метод получение всех Emploee депортаммента
-    public List<Employee> getEmploeeDeportament(String department) {
-        List<Employee> res = employees.values()
-                .stream().filter(employee -> employee.getDepartment()
-                        .equals(department)).collect(Collectors.
-                        toList());
-        return res;
-    }
-
-    //Метод получение Сотрудника с мин зп
-    @Override
-    public Optional<Employee> getMinSalaryEmployee(String department) {
-        return Optional.of(employees.values().stream()
-                .filter(employee -> employee.getDepartment().equals(department))
-                .min(Comparator.comparing(Employee::getSalary))
-                .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников"))) ;
-
-    }
-
-    //Метод получение Сотрудника с макс зп
-    @Override
-    public Optional<Employee> getMaxSalaryEmployee(String department) {
-        return Optional.of(employees.values().stream()
-                .filter(employee -> employee.getDepartment().equals(department))
-                .max(Comparator.comparing(Employee::getSalary))
-                .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников"))) ;
-    }
-
-    //Метод получение всех сотрудников с разделением по отделу
-
-    public Map<String, List<Employee>> getAllEmployeesGroupedByDepartment() {
-        return employees.values().stream().collect(Collectors.groupingBy(Employee::getDepartment));
-    }
 }

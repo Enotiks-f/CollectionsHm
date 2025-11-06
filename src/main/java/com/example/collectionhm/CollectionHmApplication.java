@@ -10,4 +10,5 @@ public class CollectionHmApplication {
         SpringApplication.run(CollectionHmApplication.class, args);
     }
 
+
 }

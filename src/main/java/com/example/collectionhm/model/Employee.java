@@ -6,10 +6,10 @@ public class Employee {
     private String firstName;
     private String lastName;
     private int salary;
-    private String department;
+    private int department;
 
     //Конструктор
-    public Employee(String firstName, String lastName, int salary, String department) {
+    public Employee(String firstName, String lastName, int salary, int department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
@@ -24,11 +24,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 

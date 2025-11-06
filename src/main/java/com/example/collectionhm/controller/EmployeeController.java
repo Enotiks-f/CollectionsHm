@@ -1,7 +1,7 @@
 package com.example.collectionhm.controller;
 
 import com.example.collectionhm.model.Employee;
-import com.example.collectionhm.service.EmployeeServiceImple;
+import com.example.collectionhm.service.serviceimple.EmployeeServiceImple;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -21,7 +21,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Collection<Employee> addEmployee(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int salary, @RequestParam String department) {
+    public Collection<Employee> addEmployee(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int salary, @RequestParam int department) {
         return employeeService.addEmployee(firstName, lastName, salary, department);
     }
 
@@ -40,25 +40,6 @@ public class EmployeeController {
         return employeeService.findAllEmployees();
     }
 
-    @GetMapping("/departments/all")
-    public Map<String, List<Employee>> findAllDepartments() {
-        return employeeService.getAllEmployeesGroupedByDepartment();
-    }
-
-    @GetMapping(value = "/departments/EmploeeDepartment")
-    public List<Employee> findAllDepartments(@RequestParam String departmentId) {
-        return employeeService.getEmploeeDeportament(departmentId);
-    }
-
-    @GetMapping("/departments/max-salary")
-    public Optional<Employee> EmpDepartmentsMaxSalary(@RequestParam String department) {
-        return employeeService.getMaxSalaryEmployee(department);
-    }
-
-    @GetMapping("/departments/min-salary")
-    public Optional<Employee> EmpDepartmentsMinSalary(@RequestParam String department) {
-        return employeeService.getMinSalaryEmployee(department);
-    }
 }
 
         
