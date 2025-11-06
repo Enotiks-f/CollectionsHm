@@ -40,25 +40,6 @@ public class EmployeeController {
         return employeeService.findAllEmployees();
     }
 
-    @GetMapping("/departments/all")
-    public Map<Integer, List<Employee>> findAllDepartments() {
-        return employeeService.getAllEmployeesGroupedByDepartment();
-    }
-
-    @GetMapping(value = "/departments/EmploeeDepartment")
-    public List<Employee> findAllDepartments(@RequestParam int departmentId) {
-        return employeeService.getEmploeeDeportament(departmentId);
-    }
-
-    @GetMapping("/departments/max-salary")
-    public Optional<Employee> EmpDepartmentsMaxSalary(@RequestParam int department) {
-        return employeeService.getMaxSalaryEmployee(department);
-    }
-
-    @GetMapping("/departments/min-salary")
-    public Optional<Employee> EmpDepartmentsMinSalary(@RequestParam int department) {
-        return employeeService.getMinSalaryEmployee(department);
-    }
 }
 
         

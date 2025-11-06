@@ -70,30 +70,4 @@ public class EmployeeServiceImple implements EmployeeService {
                 .collect(Collectors.toList());
         return res;
     }
-
-
-
-    //Метод получение Сотрудника с мин зп
-    @Override
-    public Optional<Employee> getMinSalaryEmployee(int department) {
-        return Optional.of(employees.values().stream()
-                .filter(employee -> employee.getDepartment() == department)
-                .min(Comparator.comparing(Employee::getSalary))
-                .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников")));
-    }
-
-    //Метод получение Сотрудника с макс зп
-    @Override
-    public Optional<Employee> getMaxSalaryEmployee(int department) {
-        return Optional.of(employees.values().stream()
-                .filter(employee -> employee.getDepartment() == department)
-                .max(Comparator.comparing(Employee::getSalary))
-                .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников")));
-    }
-
-    //Метод получение всех сотрудников с разделением по отделу
-
-    public Map<Integer, List<Employee>> getAllEmployeesGroupedByDepartment() {
-        return employees.values().stream().collect(Collectors.groupingBy(Employee::getDepartment));
-    }
 }
