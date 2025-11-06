@@ -63,11 +63,4 @@ public class EmployeeServiceImple implements EmployeeService {
         return Collections.unmodifiableCollection(employees.values());
     }
 
-    // Метод получение всех Emploee депортаммента
-    public List<Employee> getEmploeeDeportament(int department) {
-        List<Employee> res = employees.values()
-                .stream().filter(employee -> employee.getDepartment() == department)
-                .collect(Collectors.toList());
-        return res;
-    }
 }
