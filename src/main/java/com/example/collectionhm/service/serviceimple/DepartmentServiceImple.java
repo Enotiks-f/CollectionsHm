@@ -37,7 +37,7 @@ public class DepartmentServiceImple implements DepartmentService {
     public Optional<Employee> getMaxSalaryDepartament(int departmentId) {
         return Optional.of(employeeServiceImple.findAllEmployees().stream()
                 .filter(employee -> employee.getDepartment() == departmentId)
-                .min(Comparator.comparing(Employee::getSalary))
+                .max(Comparator.comparing(Employee::getSalary))
                 .orElseThrow(() -> new EmployeeNotFoundException("В отделе нет сотрудников")));
     }
 
@@ -45,7 +45,7 @@ public class DepartmentServiceImple implements DepartmentService {
     public Optional<Employee> getMinSalaryDepartament(int departmentId) {
         return Optional.of(employeeServiceImple.findAllEmployees().stream()
                 .filter(employee -> employee.getDepartment() == departmentId)
-                .max(Comparator.comparing(Employee::getSalary))
+                .min(Comparator.comparing(Employee::getSalary))
                 .orElseThrow(() -> new EmployeeNotFoundException("в отделе нет сотрудников")));
     }
 
