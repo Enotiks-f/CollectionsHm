@@ -2,7 +2,8 @@ package com.example.collectionhm.service.serviceimple;
 
 import com.example.collectionhm.exception.EmployeeNotFoundException;
 import com.example.collectionhm.model.Employee;
-import com.example.collectionhm.service.DepartamentService;
+import com.example.collectionhm.service.DepartmentService;
+import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
@@ -10,11 +11,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class DepartamentServiceImple implements DepartamentService {
+@Service
+public class DepartmentServiceImple implements DepartmentService {
 
     private final EmployeeServiceImple employeeServiceImple;
 
-    public DepartamentServiceImple(EmployeeServiceImple employeeServiceImple) {
+    public DepartmentServiceImple(EmployeeServiceImple employeeServiceImple) {
         this.employeeServiceImple = employeeServiceImple;
     }
 
